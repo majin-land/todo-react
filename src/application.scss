@@ -1,0 +1,35 @@
+@import './variables.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: $main-bg-colour;
+  color: $text-colour;
+}
+
+a {
+  color: $link-colour;
+  &:hover {
+    color: $green;
+  }
+}
+
+:global {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.rootContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contentContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}

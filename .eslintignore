@@ -1,0 +1,15 @@
+*/node_modules/**
+*/coverage/**
+*/test/**
+*/public/**
+Dockerfile
+*.Dockerfile
+**/*.sh
+**/*.lock
+**/*.toml
+**/*.txt
+**/*.md
+**/*.scss
+**/*.sass
+**/*.policy
+**/*.html
