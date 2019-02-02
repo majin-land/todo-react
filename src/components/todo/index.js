@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { observable } from 'mobx'
-import { inject, observer } from 'mobx-react'
-import randomstring from 'randomstring'
 
 import {
   Paper,
@@ -14,17 +11,18 @@ import {
 
 import s from './styles.scss'
 
-@inject('todoStore', 'notificationStore') @observer
 class TodoPage extends Component {
-  @observable.ref todoItems = []
-  @observable newItem = ''
+  state = {
+    todoItems: [],
+    newItem: '',
+  }
 
   render() {
     return (
       <Paper className={s.container}>
         {/* {this.renderDelete()} */}
         <h1 style={{ textAlign: 'center' }}>Todo List</h1>
-        {this.todoItems.map(item => (
+        {this.state.todoItems.map(item => (
           <div key={item.id} className={s.todoItem}>
             <FormControlLabel
               control={
@@ -54,7 +52,7 @@ class TodoPage extends Component {
             fullWidth
             type="text"
             placeholder="Enter a new item here. Then press ENTER"
-            value={this.newItem} // display @observable newItem in this textfield
+            value={this.state.newItem} // display @observable newItem in this textfield
             onChange={(event) => {
               // TODO: record the change when user update the textfield
             }}

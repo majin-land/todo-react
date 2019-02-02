@@ -19,7 +19,7 @@ const hydrate = create({
 
 export const hydrateAll = (rootStore) => {
   return Promise.all([
-    hydrate('todoItems', rootStore.todoStore),
+    hydrate('todo', rootStore.todoStore),
   ])
 }
 

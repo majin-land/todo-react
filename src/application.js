@@ -35,7 +35,6 @@ class App extends Component {
     return (
       <React.Fragment>
         <Switch>
-          {/* NOT LOGGED IN PAGES */}
           <Route path="/" component={TodoPage} />
         </Switch>
       </React.Fragment>
