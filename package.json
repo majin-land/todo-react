@@ -8,7 +8,7 @@
     "stylelint": "stylelint \"src/**/*.scss\"",
     "lint": "npm run eslint && npm run stylelint",
     "dev": "webpack-dev-server --config ./tools/webpack.config.js --mode development",
-    "build": "NODE_ENV=production TARGET=prod node tools/build.js --mode production",
+    "build": "node tools/build.js --mode production",
     "preelectron": "npm run build",
     "electron": "electron .",
     "updateLock": "sed -i '' -e 's/http:\\/\\//https:\\/\\//g' package-lock.json"

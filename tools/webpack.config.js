@@ -9,9 +9,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
-// const { TARGET } = process.env
-const TARGET = 'development'
-const ENV = 'development'
+const ENV = global.NODE_ENV || process.env.NODE_ENV || 'development'
 const isDebug = ENV !== 'production'
 
 const isVerbose = process.argv.includes('--verbose') || process.argv.includes('-v')
@@ -70,9 +68,9 @@ const config = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
-      __ENV__: `'${TARGET}'`,
-      __UAT__: TARGET === 'uat',
-      __PROD__: TARGET === 'prod',
+      __ENV__: `'${ENV}'`,
+      __UAT__: ENV === 'uat',
+      __PROD__: ENV === 'prod',
       __VERSION__: JSON.stringify(require('../package.json').version),
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
@@ -81,7 +79,7 @@ const config = {
       minimize: !isDebug,
     }),
     new Dotenv({
-      path: isDebug ? './.env.local' : ((TARGET === 'prod') ? './.env.production' : './.env.uat'), // load this now instead of the ones in '.env'
+      path: isDebug ? './.env.local' : ((ENV === 'production') ? './.env.production' : './.env.uat'), // load this now instead of the ones in '.env'
       systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
       silent: true, // hide any errors
     }),

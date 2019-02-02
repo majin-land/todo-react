@@ -2,10 +2,10 @@ const fs = require('fs')
 const rimraf = require('rimraf')
 const webpack = require('webpack')
 
+global.NODE_ENV = 'production'
+
 const task = require('./task')
 const webpackConfig = require('./webpack.config')
-
-global.DEBUG = false
 
 // Copy ./index.html into the /public/dist folder
 const html = task('html', () => {
