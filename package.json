@@ -7,7 +7,7 @@
     "eslint": "eslint components src test tools postcss.config.js webpack.config.js",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "lint": "npm run eslint && npm run stylelint",
-    "dev": "NODE_ENV=development TARGET=development webpack-dev-server --config ./tools/webpack.config.js --mode development",
+    "dev": "webpack-dev-server --config ./tools/webpack.config.js --mode development",
     "build": "NODE_ENV=production TARGET=prod node tools/build.js --mode production",
     "preelectron": "npm run build",
     "electron": "electron .",

@@ -9,8 +9,9 @@ const TerserPlugin = require('terser-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
-const { TARGET } = process.env
-const ENV = process.env.NODE_ENV || 'development'
+// const { TARGET } = process.env
+const TARGET = 'development'
+const ENV = 'development'
 const isDebug = ENV !== 'production'
 
 const isVerbose = process.argv.includes('--verbose') || process.argv.includes('-v')
