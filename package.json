@@ -2,12 +2,15 @@
   "name": "todo-react",
   "version": "1.0.0",
   "description": "Todo React Example Project",
-  "main": "index.js",
+  "main": "electron.js",
   "scripts": {
     "eslint": "eslint components src test tools postcss.config.js webpack.config.js",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "lint": "npm run eslint && npm run stylelint",
     "dev": "NODE_ENV=development TARGET=development webpack-dev-server --config ./tools/webpack.config.js --mode development",
+    "build": "NODE_ENV=production TARGET=prod node tools/build.js --mode production",
+    "preelectron": "npm run build",
+    "electron": "electron .",
     "updateLock": "sed -i '' -e 's/http:\\/\\//https:\\/\\//g' package-lock.json"
   },
   "repository": {
@@ -69,6 +72,7 @@
     "dotenv": "^6.0.0",
     "dotenv-expand": "4.2.0",
     "dotenv-webpack": "^1.5.7",
+    "electron": "^4.0.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "16.1.0",
     "eslint-plugin-babel": "^5.0.0",

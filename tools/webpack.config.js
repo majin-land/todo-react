@@ -42,7 +42,7 @@ const config = {
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, '../public/dist'),
-    publicPath: '/',
+    publicPath: '',
     filename: isDebug ? '[name].js?[hash]' : '[name].[hash].js',
     chunkFilename: isDebug ? '[id].js?[chunkhash]' : '[id].[chunkhash].js',
     sourcePrefix: '  ',
@@ -93,7 +93,6 @@ const config = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: isDebug ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDebug ? '[id].css' : '[id].[hash].css',
     }),
   ],
 
