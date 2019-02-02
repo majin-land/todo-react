@@ -17,11 +17,13 @@ class TodoPage extends Component {
     newItem: '',
   }
 
+  name = 'donnt todo'
+
   render() {
     return (
       <Paper className={s.container}>
         {/* {this.renderDelete()} */}
-        <h1 style={{ textAlign: 'center' }}>Todo List</h1>
+        <h1>To do List</h1>
         {this.state.todoItems.map(item => (
           <div key={item.id} className={s.todoItem}>
             <FormControlLabel
@@ -55,12 +57,24 @@ class TodoPage extends Component {
             value={this.state.newItem} // display @observable newItem in this textfield
             onChange={(event) => {
               // TODO: record the change when user update the textfield
+              this.setState({ newItem: event.target.value })
+              console.log('this.state.newItem', this.state.newItem)
             }}
             onKeyPress={(event) => { // when a keyboard is pressed
               // when 'ENTER' is pressed
-              if (event.key === 'Enter') {
+              if (event.key === 'Enter' && this.state.newItem) {
                 // TODO: add the item user has enter into the list
-
+                this.setState({
+                  todoItems: [
+                    ...this.state.todoItems,
+                    {
+                      id: this.state.newItem,
+                      value: this.state.newItem,
+                      isCompleted: false,
+                    },
+                  ],
+                  newItem: '',
+                })
                 // TODO: reset new item text
               }
             }}

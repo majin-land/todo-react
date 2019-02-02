@@ -12,7 +12,7 @@ import theme from './theme'
 
 import { appRoot } from './utils/helper'
 import { rootStore } from './stores'
-import App from './application'
+import Application from './application'
 
 const browserHistory = createBrowserHistory()
 const history = syncHistoryWithStore(browserHistory, rootStore.routing)
@@ -22,7 +22,7 @@ ReactDOM.render(
     <MuiThemeProvider theme={theme}>
       <Provider {...rootStore}>
         <Router history={history}>
-          <App />
+          <Application />
         </Router>
       </Provider>
     </MuiThemeProvider>
