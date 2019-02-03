@@ -10,37 +10,38 @@ import {
 } from '@material-ui/core'
 
 import s from './styles.scss'
+import DeleteDialog from '../delete-dialog'
 
 class TodoPage extends Component {
   state = {
     todoItems: [],
     newItem: '',
+    isModalOpen: false,
+    idItem: '',
+
   }
 
   _changeStatusCheckBox = (item) => {
     return this.setState({
-      todoItems: this.state.todoItems.map(itm => {
-        if (itm.id == item.id) {
-          itm.isCompleted = !itm.isCompleted
-        }
-        return itm
-      })
+      todoItems: this.state.todoItems.map(itm => { itm.id == item.id  ? itm.isCompleted = !itm.isCompleted : ''; return itm })
     })
   }
 
   _removeItems = (item) => {
-    return this.setState({
-      todoItems: this.state.todoItems.filter(itm => {
-        return itm.id !== item.id;
-      })
-    })
+    return this.setState({ todoItems: this.state.todoItems.filter(itm => itm.id !== this.state.idItem), isModalOpen: false})
   }
 
   render() {
     return (
       <Paper className={s.container}>
-        {/* {this.renderDelete()} */}
         <h1>To do List</h1>
+        <DeleteDialog 
+          open={this.state.isModalOpen} 
+          title="Are you sure to delete?"
+          content={`Are you sure to detele item "${this.state.title}" ?`}
+          onClose={() => this.setState({isModalOpen: false})}
+          onAccept={() => this._removeItems()}>
+        </DeleteDialog>
         {this.state.todoItems.map(item => (
           <div key={item.id} className={s.todoItem}>
             <FormControlLabel
@@ -48,7 +49,7 @@ class TodoPage extends Component {
                 <Checkbox
                   checked={item.isCompleted}
                   onChange={() => this._changeStatusCheckBox(item)}
-                  value=""
+                  value={item.value}
                 />
               }
               className={item.isCompleted ? s.completedItem : ``}
@@ -57,7 +58,7 @@ class TodoPage extends Component {
             <IconButton
               variant="contained"
               color="secondary"
-              onClick={() => this._removeItems(item)}
+              onClick={() => this.setState({isModalOpen: true, title: item.value, idItem: item.id})}
             >
               <Icon>delete</Icon>
             </IconButton>
@@ -71,7 +72,6 @@ class TodoPage extends Component {
             value={this.state.newItem} // display @observable newItem in this textfield
             onChange={(event) => {
               this.setState({ newItem: event.target.value })
-              console.log('this.state.newItem', this.state.newItem)
             }}
             onKeyPress={(event) => { // when a keyboard is pressed
               if (event.key === 'Enter' && this.state.newItem) {
@@ -79,7 +79,7 @@ class TodoPage extends Component {
                   todoItems: [
                     ...this.state.todoItems,
                     {
-                      id: this.state.newItem,
+                      id: this.state.todoItems.length + 1,
                       value: this.state.newItem,
                       isCompleted: false,
                     },
