@@ -17,3 +17,8 @@
   width: 100%;
   padding: 1rem 0;
 }
+
+.completedItem {
+  text-decoration: line-through;
+  font-style: italic; 
+}

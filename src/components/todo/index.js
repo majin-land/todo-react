@@ -17,7 +17,24 @@ class TodoPage extends Component {
     newItem: '',
   }
 
-  name = 'donnt todo'
+  _changeStatusCheckBox = (item) => {
+    return this.setState({
+      todoItems: this.state.todoItems.map(itm => {
+        if (itm.id == item.id) {
+          itm.isCompleted = !itm.isCompleted
+        }
+        return itm
+      })
+    })
+  }
+
+  _removeItems = (item) => {
+    return this.setState({
+      todoItems: this.state.todoItems.filter(itm => {
+        return itm.id !== item.id;
+      })
+    })
+  }
 
   render() {
     return (
@@ -30,20 +47,17 @@ class TodoPage extends Component {
               control={
                 <Checkbox
                   checked={item.isCompleted}
-                  onChange={() => {
-                    // TODO: set this todo item as completed
-                  }}
+                  onChange={() => this._changeStatusCheckBox(item)}
                   value=""
                 />
               }
+              className={item.isCompleted ? s.completedItem : ``}
               label={item.value}
             />
             <IconButton
               variant="contained"
               color="secondary"
-              onClick={() => {
-                // TODO: remove this item from the list
-              }}
+              onClick={() => this._removeItems(item)}
             >
               <Icon>delete</Icon>
             </IconButton>
@@ -56,14 +70,11 @@ class TodoPage extends Component {
             placeholder="Enter a new item here. Then press ENTER"
             value={this.state.newItem} // display @observable newItem in this textfield
             onChange={(event) => {
-              // TODO: record the change when user update the textfield
               this.setState({ newItem: event.target.value })
               console.log('this.state.newItem', this.state.newItem)
             }}
             onKeyPress={(event) => { // when a keyboard is pressed
-              // when 'ENTER' is pressed
               if (event.key === 'Enter' && this.state.newItem) {
-                // TODO: add the item user has enter into the list
                 this.setState({
                   todoItems: [
                     ...this.state.todoItems,
@@ -75,7 +86,6 @@ class TodoPage extends Component {
                   ],
                   newItem: '',
                 })
-                // TODO: reset new item text
               }
             }}
           />
