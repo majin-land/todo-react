@@ -20,6 +20,8 @@ class TodoPage extends Component {
     actionItem: ''
   }
 
+  name = 'donnt todo'
+
   render() {
     return (
       <Paper className={s.container}>
@@ -75,6 +77,8 @@ class TodoPage extends Component {
             onChange={(event) => {
               this.setState({newItem: event.target.value})
               // TODO: record the change when user update the textfield
+              this.setState({ newItem: event.target.value })
+              console.log('this.state.newItem', this.state.newItem)
             }}
 
             onKeyPress={(event) => { // when a keyboard is pressed
