@@ -51,6 +51,13 @@ const config = {
   // http://webpack.github.io/docs/configuration.html#devtool
   devtool: isDebug ? 'source-map' : false,
 
+  resolve: {
+    symlinks: false,
+    alias: {
+      '~': path.resolve(__dirname, '../src'),
+    },
+  },
+
   // What information should be printed to the console
   stats: {
     colors: true,
@@ -200,8 +207,8 @@ if (analyze) {
 
 // Hot Module Replacement (HMR) + React Hot Reload
 if (isDebug) {
-  config.entry.unshift('react-hot-loader/patch', 'webpack-hot-middleware/client')
-  config.plugins.push(new webpack.HashedModuleIdsPlugin())
+  config.entry.unshift('react-hot-loader/patch')
+  config.resolve.alias['react-dom'] = '@hot-loader/react-dom'
   config.plugins.push(new webpack.HotModuleReplacementPlugin())
   config.plugins.push(new webpack.NoEmitOnErrorsPlugin())
   config.devServer = {
