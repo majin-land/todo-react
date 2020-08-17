@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imajindev/todo-react.git"
+    "url": "git+https://github.com/imajin-land/todo-react.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imajindev/todo-react/issues"
+    "url": "https://github.com/imajin-land/todo-react/issues"
   },
-  "homepage": "https://github.com/imajindev/todo-react#readme",
+  "homepage": "https://github.com/imajin-land/todo-react#readme",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@material-ui/core": "^3.8.3",
@@ -62,7 +62,7 @@
     "@babel/runtime": "^7.0.0",
     "assets-webpack-plugin": "^3.7.1",
     "autoprefixer": "^8.2.0",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
@@ -73,19 +73,20 @@
     "dotenv-expand": "4.2.0",
     "dotenv-webpack": "^1.5.7",
     "electron": "^4.0.3",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "16.1.0",
+    "eslint": "^7.1.0",
+    "eslint-config-airbnb": "18.1.0",
     "eslint-plugin-babel": "^5.0.0",
     "eslint-plugin-css-modules": "^2.7.5",
-    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-json": "^1.2.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "minimist": "^1.2.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "path-to-regexp": "^2.2.0",
     "pixrem": "^4.0.1",
@@ -104,7 +105,7 @@
     "postcss-scss": "^0.4.1",
     "postcss-selector-matches": "^3.0.1",
     "postcss-selector-not": "^3.0.1",
-    "react-hot-loader": "^4.3.7",
+    "react-hot-loader": "^4.12.21",
     "rimraf": "^2.6.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -113,10 +114,10 @@
     "sw-precache-webpack-plugin": "0.11.4",
     "terser-webpack-plugin": "^1.2.0",
     "url-loader": "^1.0.1",
-    "webpack": "^4.28.2",
-    "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
-    "webpack-hot-middleware": "^2.24.3"
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "workbox-webpack-plugin": "^5.1.3"
   }
 }
