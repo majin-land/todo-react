@@ -32,6 +32,7 @@ node_modules
 public/dist/index.html
 public/dist
 
+.nvmrc
 .env
 .env.production
 .env.uat
