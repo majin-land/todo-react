@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/imajin-land/todo-react.git"
+    "url": "git+https://github.com/majin-land/todo-react.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imajin-land/todo-react/issues"
+    "url": "https://github.com/majin-land/todo-react/issues"
   },
-  "homepage": "https://github.com/imajin-land/todo-react#readme",
+  "homepage": "https://github.com/majin-land/todo-react#readme",
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@material-ui/core": "^3.8.3",
