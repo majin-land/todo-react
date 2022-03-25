@@ -71,7 +71,7 @@
     "dotenv": "^6.0.0",
     "dotenv-expand": "4.2.0",
     "dotenv-webpack": "^1.5.7",
-    "electron": "^9.2.0",
+    "electron": "^13.6.6",
     "eslint": "^7.1.0",
     "eslint-config-airbnb": "18.1.0",
     "eslint-plugin-babel": "^5.0.0",
